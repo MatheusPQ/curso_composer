@@ -1,0 +1,23 @@
+{
+    "name": "matheus/curso-composer",
+    "minimum-stability":"stable",
+    "require": {
+        "symfony/var-dumper":"3.3.6",
+        "php-activerecord/php-activerecord": "^1.2",
+        "cboden/ratchet": "^0.4.1",
+        "swiftmailer/swiftmailer": "^6.0"
+    },
+    "autoload":{
+        "psr-4":{
+            "app\\":"app",
+            "asw\\":["services", "jobs"]
+        },
+        "files":["functions/helpers.php"]
+    },
+    "authors": [
+        {
+            "name": "Matheus",
+            "email": "matheuspq79@outlook.com.br"
+        }
+    ]
+}

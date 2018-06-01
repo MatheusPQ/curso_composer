@@ -1,0 +1,64 @@
+No composer.json, colocar '{}' pra n dar erro
+
+No index.php, faça um require do autoload.php, gerado dentro da pasta vendor
+
+packagist.org
+
+
+Sempre que começar um projeto, inicie o composer antes
+    composer init
+        vai dando enter em td... instalar dependencias se quiser
+        no final, Do you confirm generation, digite yes
+    
+    depois, rode composer install
+
+composer update
+    Atualiza pacotes já instalados,
+    instala pacotes não instalados
+    (que foram inseridos manualmente no composer.json)
+    Já instala tbm as dependencias do pacote, caso tenha
+
+    Se vc tirar um pacote do composer.json, e rodar este comando
+    tais pacotes serão removidos do seu projeto (da pasta vendor)
+
+composer require 
+    Digitando somente o comando acima te permite procurar o pacote
+    na própria linha de comando
+
+No composer.json
+    "minimum-stability":"dev",
+        dev, stable.. versão mínima que quer baixar
+        Mais detalhes nos tipos de versões nos docs do composer.
+        Em geral, usar stable
+
+O sinal ^, por exemplo:
+    ^1.2.3
+        Vai baixar versões maiores que 1.2.3, mas menores que 2.0.0
+    Sem o sinal, vai baixar exatamente a versão especificada.
+
+composer.lock registra td relacionado com os pacotes que foram baixados.
+
+php-fig.org
+    Site de padronizações para organizar o código.
+    Há vários padrões. Um deles é o PSR-4.
+
+"psr-4":{
+    "app\\":"app",
+    "asw\\":"services"
+}
+    Classes com prefixo app, procura na pasta app
+    Classes com prefixo asw, procura na pasta services
+
+    composer dump-autoload -o
+        Rode sempre que alterar o autoload do composer.json
+        -o para otimizar o dump-autoload
+            Sempre use ela!
+    
+    Fica organizado dentro de vendor/composer/autoload_psr4.php
+
+Ainda dentro do autoload:
+    "files":["functions/helpers.php"]
+        Dentro de files, vc especifica os arquivos que quer dar require
+        p/ ñ precisar fazer isso nos arquivos php
+            (require "/....")
+    ñ esqueça do composer dump-autoload
